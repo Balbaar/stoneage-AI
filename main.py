@@ -29,7 +29,6 @@ def check_win(turn):
     else:
         pass
 
-
 def learn():
     if len(cups[str(list(picks.keys())[-1])]) > 1:
         cups[str(list(picks.keys())[-1])].remove(list(picks.values())[-1])
@@ -38,15 +37,12 @@ def learn():
         f.write(json_string)
 
 while True:
-    check_win("ai")
     pick = ai_turn()
     picks[stone] = pick
     stone -= pick
     print("  .  " * (10 - stone) + "  #  " * stone)
-    check_win("ai")
-
-
     check_win("player")
+
     stone -= your_turn()
     print("  .  " * (10 - stone) + "  #  " * stone)
     check_win("ai")
